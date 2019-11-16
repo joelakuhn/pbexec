@@ -1,0 +1,10 @@
+#!/bin/bash
+pbexecfile=/tmp/pbexecfile-$(uuidgen)
+pbpaste > $pbexecfile
+if [ -z "$1" ]; then
+  bash $pbexecfile
+else
+  "$@" $pbexecfile
+fi
+rm $pbexecfile
+
